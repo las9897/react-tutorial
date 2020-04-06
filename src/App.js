@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import { MyName, SecondName } from './MyName';
+import Counter from './Counter';
+import LifeCycle from './LifeCycle';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MyName name="리액트" test="테스트" />
+      <SecondName name="바보드랑" />
+      {/* <Counter /> */}
+      <LifeCycle />
     </div>
   );
 }
