@@ -65,13 +65,6 @@ class LifeCycle extends Component {
 		console.log("componentDidMount");
 	}
 
-	shouldComponentUpdate(nextProps, nextState) {
-		//5의 배수라면 리렌더링 하지 않음
-		console.log("shouldComponentUpdate");
-		if (nextState.number % 5 === 0) return false;
-		return true;
-	}
-
 	componentWillUpdate(nextProps, nextState) {
 		console.log("componentWillUpdate");
 	}
@@ -117,6 +110,8 @@ class LifeCycle extends Component {
 		// 렌더링에는 CPU가 어느정도 사용되기 때문이다.
 		// 쓸데없이 낭비되는 CPU 처리량을 줄여주기 위해서 VDOM에 리렌더링하는 것 마저 불필요한 경우에 이 API를 사용한다.
 		// 기본적으로 true를 반환하지만, false일 경우 render()를 호출하지 않는다.
+		console.log("shouldComponentUpdate");
+		if (nextState.number % 5 === 0) return false;
 		return true;
 	}
 
