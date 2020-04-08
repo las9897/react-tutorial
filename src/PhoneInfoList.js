@@ -9,7 +9,16 @@ class PhoneInfoList extends Component {
 		onUpdate: () => console.warn('onUpdate not defined'),
 	}
 
+	shouldComponentUpdate(nextProps, nextState) {
+		// 불변성 유지
+		// 기존 데이터가 수정되었으면 리렌더링
+		return nextProps.data !== this.props.data;
+	}
+
+
 	render() {
+		console.log('render PhoneInfoList');
+
 		const { data, onRemove, onUpdate } = this.props;
 		const list = data.map(
 			/* key는 배열을 렌더링을 할 때 꼭 필요한 값.

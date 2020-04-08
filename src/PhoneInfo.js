@@ -47,7 +47,7 @@ class PhoneInfo extends Component {
 				phone: info.phone
 			})
 		}
-		if(prevState.editing && !this.state.editing){
+		if (prevState.editing && !this.state.editing) {
 			onUpdate(info.id, {
 				name: this.state.name,
 				phone: this.state.phone
@@ -55,8 +55,21 @@ class PhoneInfo extends Component {
 		}
 	}
 
+	shouldComponentUpdate(nextProps, nextState) {
+		if (!this.state.editing
+			&& !nextState.editing
+			&& nextProps.info === this.props.info) {
+			return false;
+		}
+		return true;
+	}
+
 
 	render() {
+
+		console.log('render PhoneInfo ' + this.props.info.id);
+
+
 		const style = {
 			border: '1px solid black',
 			padding: '8px',
